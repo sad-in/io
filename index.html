@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Abul Kalam | Portfolio</title>
+    <meta name="description" content="Muhammad Abul Kalam — Computer Science & Engineering student. Portfolio showcasing projects, skills, education and contact details." />
+    <meta name="keywords" content="Muhammad Abul Kalam, portfolio, computer science, programming, projects, Sylhet" />
+    <meta name="author" content="Muhammad Abul Kalam" />
+    <meta name="theme-color" content="#121212" />
+    <link rel="icon" href="https://fav.farm/🅼" />
+    <meta property="og:title" content="Muhammad Abul Kalam — Portfolio" />
+    <meta property="og:description" content="Portfolio of Muhammad Abul Kalam — Computer Science & Engineering student. View projects, skills and contact information." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" />
+    <meta property="og:type" content="website" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1c1c1c;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --accent: #ffffff;
+            --accent-gold: #FFD700;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation: left sidebar (hidden by default; slides in when opened) */
+        nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 220px;
+            padding: 36px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            align-items: flex-start;
+            z-index: 1400;
+            background: transparent;
+            border-right: none;
+            transform: translateX(-260px);
+            transition: transform 0.35s var(--transition-smooth), background 0.35s;
+        }
+
+        /* Collapsed, scrolled look (keeps readability on small screens) */
+        nav.scrolled {
+            box-shadow: 0 5px 30px rgba(0,0,0,0.4);
+            background: rgba(12,12,12,0.9);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Main content (no permanent offset; nav overlays when opened) */
+        main {
+            margin-left: 0;
+            transition: margin 0.3s var(--transition-smooth);
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 5px;
+            color: var(--accent-gold);
+            display:flex; align-items:center; gap:10px;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gold);
+            transform: translateX(-100%);
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .logo:hover::after {
+            transform: translateX(0);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            list-style: none;
+            width: 100%;
+        }
+
+        .nav-links li {
+            position: relative;
+            overflow: visible;
+            width: 100%;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 220ms var(--transition-smooth), transform 240ms cubic-bezier(0.22,1,0.36,1);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            width: 100%;
+            border-radius: 8px;
+            will-change: transform;
+            transform: translate3d(0,0,0);
+        }
+
+        /* Slight lift on hover to complement magnetic movement */
+        .nav-links a:hover {
+            transform: translateY(-3px) scale(1.02);
+            color: var(--text-main);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            transform: translateY(-50%) scale(0.6);
+            background: transparent;
+            transition: background 240ms var(--transition-smooth), transform 240ms var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .nav-links a:hover::before {
+            background: var(--accent-gold);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Section Layouts */
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 100px 10% 80px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 0px;
+        }
+
+        .hero-content {
+            width: 60%;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--text-main) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 24px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            display: inline-block;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .hero-content .title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--accent-gold);
+        }
+
+        /* Typewriter (small) */
+        .typewrite {
+            color: var(--text-dim);
+            font-size: 25px;
+            font-weight: 600;
+            margin-top: 2px;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .typewrite .prefix { color: var(--text-main); margin-right: 8px; }
+        .typewrite .wrap { border-right: 0.08em solid var(--accent-gold); color: var(--accent-gold); }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s var(--transition-smooth);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-item:hover {
+            background: rgba(28, 28, 28, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+            font-size: 18px;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            top: 5%;
+            transform: translateY(-50%);
+            width: 35%;
+            height: auto;
+            z-index: 1;
+            filter: grayscale(100%) contrast(110%);
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 1.2s var(--transition-smooth);
+            padding-bottom: 50px;
+        }
+
+        .hero-image:hover {
+            filter: grayscale(0%) contrast(120%);
+            transform: translateY(-50%) scale(1.02);
+        }
+
+        /* About Section */
+        .section-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Section title highlight / underline effect (hover/focus) */
+        .section-title {
+            display: inline-block;
+            /* stronger, slightly taller gold highlight for better visibility */
+            background: linear-gradient(0deg, rgba(255, 217, 0, 0.445), rgba(255, 217, 0, 0.89)) no-repeat right bottom / 0 var(--bg-h);
+            --bg-h: 55em; /* height of the highlight */
+            transition: background-size 320ms cubic-bezier(.22,.9,.35,1);
+            padding-bottom: 1px; /* small padding to help highlight show under text */
+            border-radius: 5px;
+        }
+
+        .section-title:where(:hover, :focus-visible) {
+            background-size: 100% var(--bg-h);
+            background-position-x: left;
+        }
+
+        .section-heading {
+            font-size: clamp(40px, 5vw, 60px);
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            width: 100%;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            padding: 25px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: all 0.4s var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .info-card h3 {
+            font-size: 16px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--text-dim);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .skill-item {
+            padding: 25px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: all 0.4s var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .skill-item i {
+            font-size: 40px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .skill-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-item p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* Education Section - professional card layout */
+        .education-grid {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .edu-card {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: transform 0.35s var(--transition-smooth), box-shadow 0.35s var(--transition-smooth), border-color 0.35s;
+        }
+
+        .edu-card:focus-within,
+        .edu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 44px rgba(0,0,0,0.5);
+            border-color: rgba(255,215,0,0.12);
+        }
+
+        .edu-date {
+            min-width: 110px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(255,215,0,0.03);
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 13px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.04);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .edu-body h3 { margin: 0; font-size: 18px; font-weight: 700; }
+        .edu-body .institute { color: var(--text-dim); margin-top: 6px; font-size: 15px; }
+        .edu-body .result { margin-top: 10px; font-weight: 700; color: var(--text-main); }
+        .edu-body p { color: var(--text-dim); margin-top: 8px; }
+
+        @media (max-width: 900px) {
+            .education-grid { grid-template-columns: 1fr; }
+            .edu-card { align-items: center; }
+            .edu-date { min-width: 90px; }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 10%;
+            background: #0a0a0a;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 20px;
+            transition: all 0.4s var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--bg-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .copyright {
+            color: var(--text-dim);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 12px;
+            letter-spacing: 2px;
+            z-index: 100;
+        }
+
+        .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--text-dim);
+            border-radius: 20px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { top: 10px; opacity: 1; }
+            100% { top: 30px; opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .hero-content {
+                width: 100%;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 80%;
+                max-width: 500px;
+                margin: 50px auto 0;
+                right: auto;
+                top: auto;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Compact top nav for mobile */
+            nav {
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: auto;
+                padding: 10px 14px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.03);
+                background: rgba(18,18,18,0.94);
+            }
+
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            main { margin-left: 0; }
+
+            /* Reduce section paddings for mobile */
+            section { padding: 48px 5% 36px; }
+
+            /* Force hero to stack: content first, image after */
+            .hero-section { display: flex; flex-direction: column; align-items: stretch; padding-top: 24px; }
+            .hero-content { order: 1; width: 100%; padding: 0 4%; z-index: 3; }
+
+            .hero-content h1 { font-size: clamp(26px, 7vw, 38px); }
+            .typewrite { font-size: 17px; }
+
+            /* Image becomes full-width block below content to avoid overlap */
+            .hero-image {
+                order: 2;
+                position: relative !important;
+                width: 100%;
+                max-width: 680px;
+                margin: 18px auto 0;
+                right: auto;
+                top: auto;
+                transform: none !important;
+                max-height: none;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+            }
+
+            /* Ensure the left menu trigger is a small reachable square */
+            .menu-trigger { width: 56px !important; height: 56px !important; top: 12px; left: 12px; border-radius: 10px; }
+            .menu-trigger p { display:none; }
+
+            .menu { padding: 22px 18px; }
+
+            .section-heading { font-size: clamp(26px, 6vw, 34px); }
+            .education-grid { gap: 14px; }
+            .personal-info { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s var(--transition-smooth);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessibility: Skip link */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            left: 20px;
+            top: 20px;
+            width: auto;
+            height: auto;
+            padding: 8px 12px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border-radius: 6px;
+            z-index: 2000;
+        }
+
+        /* Mobile Navigation (hamburger visible on all sizes) */
+        .nav-toggle {
+            display: flex;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.03);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: fixed;
+            left: 12px;
+            top: 12px;
+            z-index: 1200;
+        }
+
+        .nav-toggle .bar {
+            width: 22px;
+            height: 2px;
+            background: var(--text-dim);
+            display: block;
+            position: relative;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-toggle .bar::before,
+        .nav-toggle .bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 22px;
+            height: 2px;
+            background: var(--text-dim);
+            transition: transform 0.3s ease;
+        }
+
+            /* Hamburger -> X */
+            .nav-toggle.open .bar { background: transparent; }
+            .nav-toggle.open .bar::before { transform: translateY(6px) rotate(45deg); }
+            .nav-toggle.open .bar::after { transform: translateY(-6px) rotate(-45deg); }
+        .nav-toggle .bar::before { top: -6px; }
+        .nav-toggle .bar::after { top: 6px; }
+
+        html.nav-open .nav-links {
+            display: flex !important;
+            position: fixed;
+            left: 20px;
+            top: 80px;
+            flex-direction: column;
+            gap: 18px;
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            z-index: 2250;
+        }
+
+        /* Re-styled left sliding menu (converted from stylus) */
+            .menu-trigger {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 56px;
+                height: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1400;
+                background: linear-gradient(180deg, rgba(17,17,17,0.18), rgba(17,17,17,0.06));
+                color: #ddd;
+                transition: background .25s ease, transform .25s ease;
+                backdrop-filter: blur(0px);
+                pointer-events: auto;
+            }
+
+            .menu-trigger p { margin: 0; transform: rotate(-90deg); transform-origin: left top; font-weight:700; letter-spacing:.08rem; font-size:.85rem; color: var(--accent-gold); }
+
+            .menu-trigger .bars { width: 46%; display:flex; align-items:center; justify-content:space-between; }
+            .menu-trigger .bars span { display:block; width:4px; height:36px; background:rgba(255,255,255,0.18); transition: all .35s ease; border-radius:2px; }
+
+            /* On mobile (Android) hide the left menu entirely per user request */
+            html.is-mobile .menu-trigger { display: none !important; pointer-events: none !important; }
+            html.is-mobile .menu { display: none !important; transform: translateX(-120%) !important; }
+            /* Also hide the 'nav' sidebar so no stray elements remain on mobile */
+            html.is-mobile nav { display: none !important; }
+
+        /* Fallback: ensure nav is hidden on narrow screens even if JS doesn't run */
+        @media (max-width: 768px) {
+            .menu-trigger, .menu, nav { display: none !important; visibility: hidden !important; pointer-events: none !important; }
+        }
+
+        /* When JS detects mobile, switch the left strip into a compact top-left toggle */
+        html.is-mobile .menu-trigger {
+            width: 56px;
+            height: 56px !important;
+            top: 12px;
+            left: 12px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(17,17,17,0.22), rgba(17,17,17,0.08));
+        }
+        html.is-mobile .menu-trigger p { display: none; }
+
+        /* Fully hide menu off-canvas on mobile until opened */
+        html.is-mobile .menu { transform: translateX(-100%); box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+        html.is-mobile .menu-trigger.open .menu { transform: translateX(0); }
+
+        .menu-trigger p { margin: 0; transform: rotate(-90deg); transform-origin: left top; font-weight:700; letter-spacing:.08rem; font-size:.85rem; color: var(--accent-gold); }
+
+        .menu-trigger .bars { width: 46%; display:flex; align-items:center; justify-content:space-between; }
+        .menu-trigger .bars span { display:block; width:4px; height:36px; background:rgba(255,255,255,0.18); transition: all .35s ease; border-radius:2px; }
+
+        .menu { position: absolute; top:0; left:0; background: linear-gradient(90deg, rgba(12,12,12,0.55), rgba(12,12,12,0.45)); height:100%; border-right:none; transform: translateX(calc(-100% + 58px)); transition: all .5s cubic-bezier(.785,.135,.15,.86); padding:60px 48px; will-change: transform; z-index:1450; box-shadow: 8px 0 30px rgba(0,0,0,0.45); border-top-right-radius:10px; border-bottom-right-radius:10px; overflow: hidden; }
+
+        .menu ul { list-style:none; padding:0; margin:0; }
+        .menu ul li { color:var(--text-dim); font-size:18px; cursor:pointer; padding:8px 0; width:100%; overflow:hidden; box-sizing: border-box; }
+        .menu ul li p { margin:0; transform: translateY(calc(100% + 10px)); transition: transform .45s cubic-bezier(.785,.135,.15,.86); }
+        .menu ul li a { color: var(--text-dim); text-decoration: none; display: block; width:100%; padding: 8px 12px; border-radius: 8px; box-sizing: border-box; }
+        .menu ul li a:hover { color: var(--accent-gold); background: rgba(255,215,0,0.04); }
+
+        /* Open state (click) */
+        .menu-trigger.open .bars span:first-of-type,
+        .menu-trigger.open .bars span:last-of-type { transform: translateY(-5px); opacity: 0; }
+        .menu-trigger.open .bars span:nth-of-type(2) { transform: scaleY(1.2); transform-origin: center bottom; }
+        .menu-trigger.open p { transform: translateY(40px) rotate(-90deg); opacity:1; }
+        .menu-trigger.open .menu { transform: translateX(0); }
+        .menu-trigger.open .menu ul li p { transform: translateY(0); }
+
+        /* Hover state: expand menu on mouse hover */
+        .menu-trigger:hover .bars span:first-of-type,
+        .menu-trigger:hover .bars span:last-of-type { transform: translateY(-5px); opacity: 0; }
+        .menu-trigger:hover .bars span:nth-of-type(2) { transform: scaleY(1.2); transform-origin: center bottom; }
+        .menu-trigger:hover p { transform: translateY(40px) rotate(-90deg); opacity:1; }
+        .menu-trigger:hover .menu { transform: translateX(0); }
+        .menu-trigger:hover .menu ul li p { transform: translateY(0); }
+
+        /* keep menu items readable on small screens */
+        @media (max-width: 600px) {
+            .menu { padding: 40px 20px; }
+            .menu ul li { font-size: 1.4rem; width: auto; }
+        }
+
+        /* When nav is opened (desktop or mobile) slide the sidebar into view */
+        html.nav-open nav {
+            transform: translateX(0);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            background: transparent;
+        }
+
+        /* On wider screens, push the page content to avoid overlap when nav opens */
+        @media (min-width: 769px) {
+            html.nav-open main {
+                margin-left: 240px;
+                transition: margin 0.35s var(--transition-smooth);
+            }
+            /* keep nav positioned as sidebar on desktop */
+            nav { transform: translateX(-260px); }
+            html.nav-open nav { transform: translateX(0); }
+        }
+
+        /* Keep page scrollable when nav is open (allow background scrolling) */
+        html.nav-open body {
+            overflow: auto; /* allow scrolling while nav overlays */
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+            width: 100%;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: transform 0.35s var(--transition-smooth), box-shadow 0.35s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(255,215,0,0.12);
+        }
+
+        .project-thumb { width: 100%; height: 160px; object-fit: cover; display: block; }
+
+        .project-body { padding: 18px; }
+
+        .project-body h4 { margin-bottom: 8px; }
+
+        .project-links { display:flex; gap:10px; margin-top:12px; }
+
+        /* Contact form */
+        .contact-form { max-width:720px; margin: 0 auto; display:flex; flex-direction:column; gap:12px; }
+
+        .input, textarea { width:100%; padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text-main); }
+
+        .btn { display:inline-block; padding:10px 18px; background:var(--accent-gold); color:#111; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+
+        .toast { position: fixed; right: 20px; bottom: 20px; background: rgba(0,0,0,0.8); color: var(--text-main); padding: 12px 16px; border-radius: 8px; display:none; z-index: 2000; }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Left sliding category menu (replaces previous sidebar) -->
+    <div class="menu-trigger" id="menuTrigger" role="button" aria-label="Open menu" aria-expanded="false" tabindex="0">
+        <div class="bars">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <p>MENU</p>
+        <nav class="menu" aria-label="Main menu">
+            <ul>
+                <li><p><a href="#home">Home</a></p></li>
+                <li><p><a href="#about">About</a></p></li>
+                <li><p><a href="#skills">Skills</a></p></li>
+                <li><p><a href="#projects">Projects</a></p></li>
+                <li><p><a href="#education">Education</a></p></li>
+                <li><p><a href="#contact">Contact</a></p></li>
+                <li><p><a href="resume.pdf" download>Resume</a></p></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main id="main">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content reveal">
+            <h2>Hello! Its me</h2>
+            <h1>Mohammad Abul Kalam</h1>
+            
+
+            <!-- Typewriter intro (static prefix "I'm a ", dynamic roles typed) -->
+            <h3 class="typewrite" data-period="2000" data-type='["student","UI/UX designer","freelancer", "web developer","programmer"]'>
+                <span class="prefix">I&#39;m a</span>
+                <span class="wrap"></span>
+            </h3>
+
+            <p style="color: var(--text-dim); max-width: 600px; margin-bottom: 30px; font-size: 16px;">
+                Passionate Computer Science student with strong technical skills, problem-solving abilities, and a dedication to continuous learning and innovation in technology.
+            </p>
+            
+            <div class="contact-info">
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sylhet, Bangladesh</span>
+                </div>
+            </div>
+        </div>
+        
+        <img src="https://github.com/dev-kalam/Pics/blob/main/1754150635363_1.jpg?raw=true" alt="Professional Portrait" class="hero-image reveal">
+        
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="reveal" style="width: 100%;">
+            <div class="section-title">Personal Information</div>
+            <h2 class="section-heading">About Me</h2>
+            
+            <div class="about-content">
+                <div>
+                    <p style="color: var(--text-dim); font-size: 16px; margin-bottom: 40px; line-height: 1.8;">
+                        I am a dedicated Computer Science and Engineering student at Metropolitan University, Sylhet, with a strong academic background and passion for technology. My journey in computer science began early, and I have consistently achieved excellent academic results, including 100% marks in HSC and JSC examinations.
+                    </p>
+                    
+                    <div class="personal-info">
+                        
+                        <div class="info-card">
+                            <h3>Date of Birth</h3>
+                            <p>19 March 2004</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Nationality</h3>
+                            <p>Bangladeshi</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Gender</h3>
+                            <p>Male</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="info-card" style="height: 100%;">
+                        <h3>Address</h3>
+                        <p style="margin-bottom: 20px; font-weight: 600; color: var(--text-main);">Current Address:</p>
+                        <p style="color: var(--text-dim); margin-bottom: 30px;">
+                            Boteshwar, Jalalabad Cantoment,<br>
+                            Sylhet Sadar, Sylhet.
+                        </p>
+                        
+                        <p style="margin-bottom: 20px; font-weight: 600; color: var(--text-main);">Permanent Address:</p>
+                        <p style="color: var(--text-dim);">
+                            535, Naotola, Madhaiabazar,<br>
+                            Chandina, Cumilla.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="reveal" style="width: 100%;">
+            <div class="section-title">Technical Expertise</div>
+            <h2 class="section-heading">My Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-item reveal">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Computer Operating</h3>
+                    <p>Proficient in operating various computer systems, troubleshooting hardware and software issues, and maintaining system efficiency.</p>
+                </div>
+                <div class="skill-item reveal">
+                    <i class="fa-brands fa-html5"></i>
+                    <h3>Web development</h3>
+                    <p>Advanced proficiency in Microsoft Office Suite including Word, Excel, PowerPoint for documentation, data analysis, and presentations.</p>
+                </div>
+                <div class="skill-item reveal">
+                    <i class="fas fa-code"></i>
+                    <h3>Programming</h3>
+                    <p>Currently developing programming skills as part of Computer Science & Engineering curriculum with focus on algorithm development.</p>
+                </div>
+                <div class="skill-item reveal">
+                    <i class="fa-brands fa-node-js"></i>
+                    <h3>Software Development</h3>
+                    <p>committed to collaborative projects and continuous learning, aiming to contribute fresh perspectives and technical skills to a forward-thinking development team.</p>
+                </div>
+                <div class="skill-item reveal">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem Solving</h3>
+                    <p>Strong analytical and problem-solving abilities with a systematic approach to identifying issues and developing effective solutions.</p>
+                </div>
+                <div class="skill-item reveal">
+                    <i class="fas fa-file-excel"></i>
+                    <h3>Microsoft Office</h3>
+                    <p>Advanced proficiency in Microsoft Office Suite including Word, Excel, PowerPoint for documentation, data analysis, and presentations.</p>
+                </div>
+                
+                <div class="skill-item reveal">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistent top academic performer with First Class/Division results across all educational levels including 100% marks in HSC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <!-- Projects Section -->
+    <section id="projects" style="background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
+        <div class="reveal" style="width:100%;">
+            <div class="section-title">Selected Work</div>
+            <h2 class="section-heading">Projects</h2>
+
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <img class="project-thumb" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=60" alt="Inventory Billing System screenshot">
+                    <div class="project-body">
+                        <h4>Inventory Billing System (C-programme)</h4>
+                        <p style="color:var(--text-dim);">A simple C-based retail store inventory and billing system. Supports adding, deleting and updating items, viewing inventory, managing a customer cart, and generating bills. Built as a learning project in C with potential for database or GUI upgrades.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/dev-kalam/C-programme" target="_blank" rel="noopener" aria-label="View project on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/dev-kalam/C-programme/archive/refs/heads/main.zip" aria-label="Download source" target="_blank" rel="noopener"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    
+                </article>
+                <article class="project-card reveal">
+                    <img class="project-thumb" src="https://plus.unsplash.com/premium_photo-1678566154673-a728037f3f00?q=80&w=402&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Financia-pro Icon">
+                    <div class="project-body">
+                        <h4>Financia Pro</h4>
+                        <p style="color:var(--text-dim);">Financia is a professional, browser-based accounting application built with pure HTML, CSS, and JavaScript. It provides a complete double-entry bookkeeping system with an elegant glassmorphism interface..</p>
+                        <div class="project-links">
+                            <a href="https://github.com/dev-kalam/Financia-pro.git" target="_blank" rel="noopener" aria-label="View project on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/dev-kalam/Financia-pro/archive/refs/heads/main.zip" aria-label="Download source" target="_blank" rel="noopener"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    
+                </article>
+                <article class="project-card reveal">
+                    <img class="project-thumb" src="https://images.unsplash.com/photo-1699885960867-56d5f5262d38?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Financia-pro Icon">
+                    <div class="project-body">
+                        <h4>MY-Animedia</h4>
+                        <p style="color:var(--text-dim);">My-Animedia is a full-stack anime and movie streaming-style web app built with HTML, CSS, and JavaScript for the frontend and Node.js for the backend. It features a modern glassmorphic UI, dynamic content sections for anime, movies, and series, and a MySQL-powered backend for managing users and reviews.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/dev-kalam/MY-Animedia.git" target="_blank" rel="noopener" aria-label="View project on GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/dev-kalam/MY-Animedia/archive/refs/heads/main.zip" aria-label="Download source" target="_blank" rel="noopener"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    
+                </article>
+            </div>
+        </div>
+    </section>
+    <section id="education">
+        <div class="reveal" style="width: 100%;">
+            <div class="section-title">Academic Journey</div>
+            <h2 class="section-heading">Education</h2>
+            
+            <div class="education-grid">
+                <div class="edu-card">
+                    <div class="edu-date">2023 - 2027<br><small style="font-weight:600;color:var(--text-dim);">(Expected)</small></div>
+                    <div class="edu-body">
+                        <h3>Bachelor of Science (BSc)</h3>
+                        <div class="institute">Metropolitan University, Sylhet</div>
+                        <div class="result">First Class, 85%</div>
+                        <p>Major: Computer Science & Engineering</p>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-date">2019 - 2021</div>
+                    <div class="edu-body">
+                        <h3>Higher Secondary Certificate (HSC)</h3>
+                        <div class="institute">Scholarshome Majortila College</div>
+                        <div class="result">First Division — 100%</div>
+                        <p>Group: Science</p>
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-date">2017 - 2019</div>
+                    <div class="edu-body">
+                        <h3>Secondary School Certificate (SSC)</h3>
+                        <div class="institute">Syed Hatim Ali High School</div>
+                        <div class="result">First Division — 85.6%</div>
+                        <p>Group: Science</p>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="reveal" style="width:100%;">
+            <div class="section-title">Get In Touch</div>
+            <h2 class="section-heading">Contact</h2>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:start;">
+                <div>
+                    <p style="color:var(--text-dim); max-width:520px; margin-bottom:18px;">I'm available for internships, freelance projects, and collaborations. Send a message and I'll reply as soon as possible.</p>
+
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>01603071279</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>abulkalamripon09@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sylhet, Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="contactForm" class="contact-form" aria-label="Contact form">
+                        <input class="input" id="name" name="name" placeholder="Your name" required />
+                        <input class="input" id="email" type="email" name="email" placeholder="Your email" required />
+                        <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
+                        <button class="btn" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MUHAMMAD ABUL KALAM</div>
+            <div class="footer-text">
+                Computer Science & Engineering Student | Passionate Technologist | Problem Solver<br>
+                Dedicated to excellence in technology and continuous learning.
+            </div>
+            
+            <div class="contact-info" style="justify-content: center; margin-bottom: 40px;">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>01603071279</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>abulkalamripon09@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sylhet, Bangladesh</span>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/abul-kalam-b87728360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/dev-kalam" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/share/17aMjq1MYo/" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                © 2024 Muhammad Abul Kalam. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* --- JAVASCRIPT FOR INTERACTION --- */
+
+        // Simple reveal using IntersectionObserver for better performance
+        (function() {
+            const reveals = document.querySelectorAll('.reveal');
+            if('IntersectionObserver' in window) {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.06 });
+                reveals.forEach(r => obs.observe(r));
+            } else {
+                // fallback
+                const onScroll = () => {
+                    reveals.forEach(r => {
+                        const rect = r.getBoundingClientRect();
+                        if(rect.top < window.innerHeight - 120) r.classList.add('active');
+                    });
+                };
+                window.addEventListener('scroll', onScroll);
+                onScroll();
+            }
+        })();
+
+        // Navigation hover simplified (magnetic effect removed)
+
+        // Navbar scroll effect
+        (function() {
+            const nav = document.querySelector('nav');
+            const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        })();
+
+        // Mobile nav toggle
+        (function(){
+            const html = document.documentElement;
+            const trigger = document.getElementById('menuTrigger');
+            const sidebar = document.querySelector('nav');
+            const navLinks = document.querySelector('.menu ul');
+            if(!toggle) return;
+            // migrate to new trigger-based menu
+            const toggle = trigger; // keep name used below
+            if(sidebar) sidebar.setAttribute('aria-hidden', 'true');
+            toggle.addEventListener('click', () => {
+                const open = html.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                toggle.classList.toggle('open', open);
+                toggle.classList.toggle('open');
+                // also toggle visual open state on trigger
+                trigger.classList.toggle('open', open);
+                if(sidebar) sidebar.setAttribute('aria-hidden', open ? 'false' : 'true');
+                if(open) {
+                    setTimeout(()=>{ navLinks?.querySelector('a')?.focus(); }, 150);
+                } else {
+                    toggle.focus();
+                }
+            });
+
+            // Close menu on Escape
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'Escape' && html.classList.contains('nav-open')){
+                    html.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    if(sidebar) sidebar.setAttribute('aria-hidden', 'true');
+                    trigger.classList.remove('open');
+                    toggle.classList.remove('open');
+                    trigger.focus();
+                }
+            });
+
+            // Close menu when clicking any anchor
+            document.querySelectorAll('.menu a[href^="#"]').forEach(a => {
+                a.addEventListener('click', () => {
+                    html.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    trigger.classList.remove('open');
+                    toggle.classList.remove('open');
+                    if(sidebar) sidebar.setAttribute('aria-hidden', 'true');
+                });
+            });
+
+            // Close when clicking outside the nav
+            document.addEventListener('click', (e) => {
+                const target = e.target;
+                if(!html.classList.contains('nav-open')) return;
+                if(target.closest('nav')) return; // clicked inside nav
+                if(target.closest('#menuTrigger')) return; // clicked the toggle
+                html.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                trigger.classList.remove('open');
+                toggle.classList.remove('open');
+                if(sidebar) sidebar.setAttribute('aria-hidden', 'true');
+            });
+        })();
+
+        // Ensure html has `is-mobile` while resizing so styles/scripts adapt
+        (function(){
+            const htmlEl = document.documentElement;
+            function setFlag(){
+                const mobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                htmlEl.classList.toggle('is-mobile', mobile);
+            }
+            setFlag();
+            window.addEventListener('resize', setFlag);
+            window.addEventListener('orientationchange', setFlag);
+        })();
+
+        // Smooth scrolling for navigation links (and skip link)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(!targetId || targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    const offset = 80; // header offset
+                    const top = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    targetElement.setAttribute('tabindex', '-1');
+                    targetElement.focus({ preventScroll: true });
+                }
+            });
+        });
+
+        // Small hover cursor hints
+        document.querySelectorAll('.timeline-content, .skill-item, .info-card, .project-card').forEach(item => {
+            item.addEventListener('mouseenter', function() { this.style.cursor = 'pointer'; });
+        });
+
+        // Contact form handling — uses mailto as fallback for static hosting
+        (function(){
+            const form = document.getElementById('contactForm');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+
+            function showToast(msg, ms=2600){
+                toast.textContent = msg;
+                toast.style.display = 'block';
+                setTimeout(()=>{ toast.style.display = 'none'; }, ms);
+            }
+
+            if(!form) return;
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                if(!name || !email || !message) { showToast('Please complete all fields.'); return; }
+                const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+                const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
+                showToast('Opening your email client...');
+                // Use mailto to open user's email client
+                window.location.href = `mailto:abulkalamripon09@gmail.com?subject=${subject}&body=${body}`;
+                form.reset();
+            });
+        })();
+
+        // Update copyright year
+        document.querySelector('.copyright').innerHTML = `© ${new Date().getFullYear()} Muhammad Abul Kalam. All Rights Reserved.`;
+
+        // Add subtle loading fade-in
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.45s ease';
+            requestAnimationFrame(() => setTimeout(()=>{ document.body.style.opacity = '1'; }, 80));
+        });
+    </script>
+    <script>
+    /* Typewriter: non-intrusive init (won't overwrite existing window.onload) */
+    (function(){
+        var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.isDeleting = false;
+            this.tick();
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            var wrapEl = this.el.querySelector('.wrap');
+            if (wrapEl) {
+                wrapEl.innerHTML = this.txt;
+            } else {
+                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+            }
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() { that.tick(); }, delta);
+        };
+
+        function initTypewriters() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    try {
+                        new TxtType(elements[i], JSON.parse(toRotate), period);
+                    } catch (e) {
+                        // silently fail if JSON parse fails
+                        console.warn('typewrite JSON parse failed', e);
+                    }
+                }
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTypewriters);
+        } else {
+            initTypewriters();
+        }
+    })();
+    </script>
+</body>
+</html>
